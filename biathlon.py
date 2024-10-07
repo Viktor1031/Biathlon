@@ -42,10 +42,13 @@ def rita_måltavla(måltavla_array): # Vi ritar en måltavla
     
 def skjut(skytt, prick): #Vi skjuter med en skytt på ett index prick.
         print(skytt.namn + " skjuter!")
-        if skytt.skill>=randint(0,100): 
+        if skytt.skill>=randint(0,100):
             if skytt.trötthet<=randint(0,100):
-                skytt.måltavla[prick]=1
-                print("Fullträff!")
+                if skytt.måltavla[prick] == 1:
+                    print("Du träffade en prick du redan träffat!")
+                else:
+                    skytt.måltavla[prick]=1
+                    print("Fullträff!")
             else:
                 print("Zzz....")
         else:
